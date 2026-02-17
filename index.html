@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Registration Form</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            /* স্ক্রিনশটের মতো গ্রাডিয়েন্ট */
+            background: linear-gradient(135deg, #5c7cfa, #1cc88a);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 500px;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.2);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 25px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        label {
+            font-weight: 600;
+            display: block;
+            margin-bottom: 8px;
+            color: #444;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #4e73df;
+            box-shadow: 0 0 5px rgba(78, 115, 223, 0.3);
+        }
+
+        /* রেডিও এবং চেকবক্স গ্রুপিং */
+        .radio-group, .checkbox-group {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 15px;
+            padding: 5px 0;
+        }
+
+        .radio-group label, .checkbox-group label {
+            font-weight: normal;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            cursor: pointer;
+        }
+
+        .radio-group input, .checkbox-group input {
+            width: auto;
+            cursor: pointer;
+        }
+
+        .buttons {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        button {
+            flex: 1;
+            padding: 12px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        .submit-btn {
+            background: #4e73df;
+            color: white;
+        }
+
+        .submit-btn:hover {
+            background: #2e59d9;
+        }
+
+        .reset-btn {
+            background: #858796;
+            color: white;
+        }
+
+        .reset-btn:hover {
+            background: #5a5c69;
+        }
+
+        .message {
+            text-align: center;
+            margin-top: 15px;
+            min-height: 20px;
+        }
+
+        .error { color: #e74a3b; font-size: 14px; }
+        .success { color: #1cc88a; font-size: 14px; }
+
+        @media(max-width: 480px){
+            .container { padding: 20px; }
+            .radio-group, .checkbox-group { gap: 10px; }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Student Registration Form</h2>
+
+    <form id="studentForm">
+        <div class="form-group">
+            <label for="name">Student Name</label>
+            <input type="text" id="name" placeholder="Enter your name">
+        </div>
+
+        <div class="form-group">
+            <label for="studentId">Student ID</label>
+            <input type="text" id="studentId" placeholder="Enter your ID">
+        </div>
+
+        <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="Enter your email">
+        </div>
+
+        <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" placeholder="Enter phone number">
+        </div>
+
+        <div class="form-group">
+            <label for="department">Department</label>
+            <select id="department">
+                <option value="">-- Select Department --</option>
+                <option value="CSE">CSE</option>
+                <option value="EEE">EEE</option>
+                <option value="BBA">BBA</option>
+                <option value="English">English</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+            <label>Gender</label>
+            <div class="radio-group">
+                <label><input type="radio" name="gender" value="Male"> Male</label>
+                <label><input type="radio" name="gender" value="Female"> Female</label>
+                <label><input type="radio" name="gender" value="Other"> Other</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label>Skills</label>
+            <div class="checkbox-group">
+                <label><input type="checkbox" name="skills" value="HTML"> HTML</label>
+                <label><input type="checkbox" name="skills" value="CSS"> CSS</label>
+                <label><input type="checkbox" name="skills" value="JavaScript"> JavaScript</label>
+                <label><input type="checkbox" name="skills" value="Python"> Python</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="address">Address</label>
+            <textarea id="address" rows="2" placeholder="Enter your address"></textarea>
+        </div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" placeholder="Create password">
+        </div>
+
+        <div class="form-group">
+            <label for="dob">Date of Birth</label>
+            <input type="date" id="dob">
+        </div>
+
+        <div class="buttons">
+            <button type="submit" class="submit-btn">Register</button>
+            <button type="reset" id="resetBtn" class="reset-btn">Reset</button>
+        </div>
+
+        <div id="message" class="message"></div>
+    </form>
+</div>
+
+<script>
+const form = document.getElementById("studentForm");
+const message = document.getElementById("message");
+
+
+form.addEventListener("submit", function(e){
+    e.preventDefault();
+
+    let name = document.getElementById("name").value.trim();
+    let studentId = document.getElementById("studentId").value.trim();
+    let email = document.getElementById("email").value.trim();
+    let phone = document.getElementById("phone").value.trim();
+    let department = document.getElementById("department").value;
+    let password = document.getElementById("password").value.trim();
+    let dob = document.getElementById("dob").value;
+    let gender = document.querySelector('input[name="gender"]:checked');
+    let skills = document.querySelectorAll('input[name="skills"]:checked');
+
+    message.innerHTML = "";
+
+    
+    if(!name || !studentId || !email || !phone || !department || !password || !dob){
+        message.innerHTML = "<span class='error'>Error: Please fill all fields!</span>";
+        return;
+    }
+
+    if(!gender){
+        message.innerHTML = "<span class='error'>Error: Please select gender!</span>";
+        return;
+    }
+
+    if(skills.length === 0){
+        message.innerHTML = "<span class='error'>Error: Select at least one skill!</span>";
+        return;
+    }
+
+   
+    if(password.length < 6){
+        message.innerHTML = "<span class='error'>Error: Password must be 6+ characters!</span>";
+        return;
+    }
+
+    message.innerHTML = "<span class='success'>✔ Registration Successful!</span>";
+    
+    
+    const studentData = {
+        name, studentId, email, phone, department, dob, gender: gender.value
+    };
+    console.log("Success:", studentData);
+
+    form.reset();
+});
+
+
+document.getElementById("resetBtn").addEventListener("click", () => {
+    message.innerHTML = "";
+});
+</script>
+
+</body>
+</html>
