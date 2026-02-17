@@ -51,28 +51,9 @@ A simple and responsive Student Registration Form built using **HTML, CSS, and J
 
 ---
 
-## 📸 Screenshot
-
-![Uploading image.png…]()
-
-
----
-
-## 🧑‍💻 How to Run
-
-1. Download or clone the repository
-2. Open `index.html` in your browser
-3. Fill the form and test validation
-
----
 
 
 
-## 📌 Author
-
-Your Name  
-Badsha Sheikh /Full Stack Web Developer  
 
 
-## 📁 Project Structure
 
